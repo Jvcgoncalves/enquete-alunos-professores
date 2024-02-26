@@ -11,7 +11,6 @@ export default function AnswersPart({question}){
   const question_text = question.text.toLowerCase()
   const {values,updateValuesToUi} = useContext(Values_context)
   
-  console.log(values);
   return(
     <>
       <div className="fs-6 d-flex gap-1 align-items-center">

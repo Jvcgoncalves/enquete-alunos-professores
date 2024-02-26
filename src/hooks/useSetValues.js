@@ -8,16 +8,17 @@ export default function useSetValues(){
     console.log(values);
     if(operation === "add"){
       setValues(state =>{
-        console.log(state);
         if(state[contentToUpdate] === 0 ) return state
-        question.answers = {...state, [contentToUpdate]: {...state[question_text] + 1}}
-        return question.answers
+        console.log(state);
+        console.log(contentToUpdate);
+        console.log(state[contentToUpdate]);
+        console.log(state.muito_bom);
+        return {...state, [contentToUpdate]: {...state, value: state.value + 1}}
       })
     } else {
       setValues(state =>{
         if(state[contentToUpdate] === 0 ) return state
-        question.answers = {...state, [contentToUpdate]: state[question_text] - 1}
-        return question.answers
+        return {...state, [contentToUpdate]: {...state.value + 1}}
       })
     }
   }
