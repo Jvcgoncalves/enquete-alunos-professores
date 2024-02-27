@@ -133,59 +133,62 @@ const questions_students = [
 
 const question_teachers = [
   {
-    question:"você acha que a plataforma é favorável para facilitar a vida do professor e ajudar na gestão de todas suas turmas?",
+    question:"Como você avalia o desenpenho da plataforma para facilitar a vida do professor e ajudar na gestão de todas suas turmas?",
     id:1,
-    answers:{
-      muito_bom:0,
-      bom:0,
-      regular:0,
-      ruim:0,
-      muito_ruim:0
-    }
+    answers:[
+      {
+        text: "Muito_bom",
+        value:0
+      },
+      {
+        text: "Bom",
+        value:0
+      },
+      {
+        text: "Regular",
+        value:0
+      },
+      {
+        text: "Ruim",
+        value:0
+      },
+      {
+        text: "Muito ruim",
+        value:0
+      },
+    ]
   },
   {
     question:"Qual o principal fator que você acha que o SAAGRES poderia melhorar?",
     id:2,
-    answers:{
-      muito_bom:0,
-      bom:0,
-      regular:0,
-      ruim:0,
-      muito_ruim:0
-    }
+    answers:[
+      {
+        text: "Sim",
+        value:0
+      },
+      {
+        text: "Não",
+        value:0
+      }
+    ]
   },
   {
-    question:"Você como professor indicaria um software como o SAAGRES para um colega no mesmo ramo?",
+    question:"Como professor qual você acha que é a funcionalidade mais importante para um software de gestão educativa?",
     id:3,
-    answers:{
-      muito_bom:0,
-      bom:0,
-      regular:0,
-      ruim:0,
-      muito_ruim:0
-    }
-  },
-  {
-    question:"Como professor qual você acha que é a funcionalidade mais importante para um software de 'gestão educativa'?",
-    id:4,
-    answers:{
-      muito_bom:0,
-      bom:0,
-      regular:0,
-      ruim:0,
-      muito_ruim:0
-    }
-  },
-  {
-    question:"O sagres tem como intuito: otimizar o tempo dos professores e dos alunos, para poder cumprirem ambas atividades com rapidez, você como estudante/professor acha que o sagres vem cumprindo esse papel?",
-    id:5,
-    answers:{
-      muito_bom:0,
-      bom:0,
-      regular:0,
-      ruim:0,
-      muito_ruim:0
-    }
+    answers:[
+      {
+        text: "Praticidade para lançar notas,conteúdos,presenças...",
+        value:0
+      },
+      {
+        text: "Interface intuitiva e informações claras",
+        value:0
+      },
+      {
+        text: "Funcionalidades de automatização de correções de prova, calendarios...",
+        value:0
+      }
+    ]
   }
 ]
 

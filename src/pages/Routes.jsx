@@ -6,6 +6,7 @@ import StudentAnswerPage from "./routes/student/StudentAnswerPage";
 import studentPageLoader from "../loaders/studentPageLoader";
 import TeachersAnswerPage from "./routes/teachers/TeachersAnswerPage";
 import teacherPageLoader from "../loaders/teacherPageLoader";
+import mainPageLoader from "../loaders/mainContainerLoader";
 
 const routes = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const routes = createBrowserRouter([
       {
         path:"/alunos",
         element: <Student />,
+        loader:mainPageLoader,
         children: [
           {
             path:":id",
@@ -26,6 +28,7 @@ const routes = createBrowserRouter([
       {
         path:"/professores",
         element: <Teachers />,
+        loader:mainPageLoader,
         children: [
           {
             path: ":id",

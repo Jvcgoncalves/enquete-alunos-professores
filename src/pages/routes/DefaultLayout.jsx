@@ -4,7 +4,7 @@ import testFirebase from "../../scripts/addAnswerStudent";
 testFirebase()
 export default function DefaultLayout(){
   return(
-    <div id="App" >
+    <div id="App" className="pb-5">
       <Header />
       <Outlet />
     </div>

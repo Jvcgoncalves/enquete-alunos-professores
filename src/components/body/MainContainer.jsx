@@ -1,45 +1,47 @@
-import { Link, Outlet } from "react-router-dom";
+import { useRef } from "react";
+import { Outlet, useLoaderData, useLocation } from "react-router-dom";
+import QuestionsNavLi from "./QuestionsNavLi";
+import Questions_context from "../../contexts/SetQuestionsPath";
+
+function getForWhoQuestion(path){
+  if(path.match("professores")){
+    return "professores"
+  } else{
+    return "alunos"
+  }
+
+}
 
 export default function MainContainer(){
+  const location = useLocation()
+  const {teacherData,studentData} = useLoaderData()
+  const path = useRef(getForWhoQuestion(location.pathname))
   return (
     <div className="container">
-      <h1 className="h2 text-center">Perguntas alunos</h1>
+      <h1 className="h2 text-center">Perguntas {path.current}</h1>
       <div>
         <nav className="navbar w-100 questions-menu bg-dark">
           <ul className="navbar-nav d-flex flex-row justify-content-center w-100 gap-3 align-items-center " >
-            <li className="nav-item">
-              <Link to={"1"} className="nav-link text-white fs-5 m-0" >
-                1
-              </Link >
-            </li>
-            <span className="fs-4">|</span>
-            <li className="nav-item">
-              <Link to={"2"} className="nav-link text-white fs-5 m-0" >
-                2
-              </Link >
-            </li>
-            <span className="fs-4">|</span>
-            <li className="nav-item">
-              <Link to={"3"} className="nav-link text-white fs-5 m-0" >
-                3
-              </Link >
-            </li>
-            <span className="fs-4">|</span>
-            <li className="nav-item">
-              <Link to={"4"} className="nav-link text-white fs-5 m-0" >
-                4
-              </Link >
-            </li>
-            <span className="fs-4">|</span>
-            <li className="nav-item">
-              <Link to={"5"} className="nav-link text-white fs-5 m-0" >
-                5
-              </Link >
-            </li>
+            {
+              path.current === "professores" ? 
+              (
+                teacherData.map((question,index)=>{
+                  return <QuestionsNavLi key={`question_${++index}`} to={++index}/>
+                })
+              )
+              :
+              (
+                studentData.map((question,index)=>{
+                  return <QuestionsNavLi key={`question_${++index}`} to={++index}/>
+                })
+              )
+            }
           </ul>
         </nav>
       </div>
-      <Outlet />
+      <Questions_context.Provider value={path.current}>
+        <Outlet />
+      </Questions_context.Provider>
     </div>
   )
 }
